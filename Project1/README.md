@@ -12,14 +12,14 @@ These tasks are just the basic requirements for you to pass the project! Feel fr
 
 ### Directory Structure
 ```
-.Project1
-├── CMakeLists.txt
-├── images
+.Project1                     # Build My World Project 
+├── CMakeLists.txt            # Link libraries 
+├── images                    # Output in Gazebo
 │   ├── image1.jpg
 │   ├── image2.jpg
 │   ├── image3.jpg
 │   └── image4.jpg
-├── model
+├── model                     # Model files
 │   ├── Building
 │   │   ├── model.config
 │   │   └── model.sdf
@@ -27,9 +27,9 @@ These tasks are just the basic requirements for you to pass the project! Feel fr
 │       ├── model.config
 │       └── model.sdf
 ├── README.md
-├── script
+├── script                    # Gazebo World plugin C++ script
 │   └── welcome_message.cpp
-└── world
+└── world                     # Gazebo main World containing models
     └── UdacityOffice.world
 ```
 
