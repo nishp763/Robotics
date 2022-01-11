@@ -14,15 +14,18 @@ These tasks are just the basic requirements for you to pass the project! Feel fr
 
 ### Build Instructions
 1. Clone this repo
-2. Switch into script directory
-```sh
-cd script
+2. Make welcome_message.cpp executable under script directory
+```bash
+chmod +x script/welcome_message.cpp
 ```
-3. Make welcome_message.cpp executable
-```sh
-chmod +x welcome_message.cpp
+3. Create a build directory and compile the code
+```bash
+mkdir build
+cd build
+cmake ../
+make
+export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:<your workspace>/build
 ```
-
 
 
 ### Output Image
