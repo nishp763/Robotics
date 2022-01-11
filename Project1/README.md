@@ -12,7 +12,10 @@ These tasks are just the basic requirements for you to pass the project! Feel fr
 
 ### Directory Structure
 
+
+
 ### Build Instructions
+
 1. Clone this repo
 2. Make welcome_message.cpp executable under script directory
 ```bash
@@ -26,6 +29,25 @@ cmake ../
 make
 export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:<your workspace>/build
 ```
+4. Launch the world file in Gazebo to load both the world and the plugin
+```bash
+cd script
+gazebo UdacityOffice.world
+```
 
+### Output Images
+<p align="center">
+  <img src="images/image1.jpg"/>
+</p>
 
-### Output Image
+<p align="center">
+  <img src="images/image2.jpg"/>
+</p>
+
+<p align="center">
+  <img src="images/image3.jpg"/>
+</p>
+
+<p align="center">
+  <img src="images/image4.jpg"/>
+</p>
