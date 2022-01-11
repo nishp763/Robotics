@@ -11,8 +11,27 @@ Let’s summarize what you should do in this project to create a simulation worl
 These tasks are just the basic requirements for you to pass the project! Feel free to have fun designing and importing multiple models.
 
 ### Directory Structure
-
-
+```
+.Project1
+├── CMakeLists.txt
+├── images
+│   ├── image1.jpg
+│   ├── image2.jpg
+│   ├── image3.jpg
+│   └── image4.jpg
+├── model
+│   ├── Building
+│   │   ├── model.config
+│   │   └── model.sdf
+│   └── HumanoidRobot
+│       ├── model.config
+│       └── model.sdf
+├── README.md
+├── script
+│   └── welcome_message.cpp
+└── world
+    └── UdacityOffice.world
+```
 
 ### Build Instructions
 
