@@ -11,7 +11,7 @@ ros::ServiceClient client;
 void drive_robot(float lin_x, float ang_z)
 {
     // Request a service and pass the velocities to it to drive the robot
-    ROS_INFO_STREAM("Setting the bot velocity to linear_x:%1.2f, angular_z:%1.2f", lin_x, ang_z);
+    ROS_INFO_STREAM("Setting Bot Velocity");
     ball_chaser::DriveToTarget srv;
     srv.request.linear_x = lin_x;
     srv.request.angular_z = ang_z;
@@ -26,8 +26,7 @@ void process_image_callback(const sensor_msgs::Image img)
 {
     int white_pixel = 255;
 
-    int numRegions = 3;
-    std::array<int,numRegions> whitePixelCounterByRegion; // 0 - left region, 1 - center region, 2 - right region
+    std::array<int,3> whitePixelCounterByRegion; // 0 - left region, 1 - center region, 2 - right region
     int leftRegionBoundary = (int)(0.30*img.step); // 0 to 30% of image width
     int rightRegionBoundary = (int)(0.70*img.step); // > 70% of image width
 
