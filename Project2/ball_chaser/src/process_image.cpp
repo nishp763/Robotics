@@ -24,54 +24,66 @@ void drive_robot(float lin_x, float ang_z)
 // This callback function continuously executes and reads the image data
 void process_image_callback(const sensor_msgs::Image img)
 {
-    int white_pixel = 255;
+    /*
+        After logging the rostopic to .txt file the following info was obtained
+        img.height = 800
+        img.width = 800
+        img.step = 2400 (img.height * img.width * 3 (RGB channel))
+        img.data = array with 0-255 value to represent pixel value and its size is height*step 1,920,000
+                   [r1,g1,b1,r2,g2,b2...,rn,gn,gn] where n is the height*step and the values represent RGB (3 channels)
+    */
+    int white_pixel = 255; // when R=255, G=255, B=255 implies white pixel
 
-    std::array<int,3> whitePixelCounterByRegion; // 0 - left region, 1 - center region, 2 - right region
-    int leftRegionBoundary = (int)(0.30*img.step); // 0 to 30% of image width
-    int rightRegionBoundary = (int)(0.70*img.step); // > 70% of image width
+    int leftWhitePixelCounter = 0;
+    int centerWhitePixelCounter = 0;
+    int rightWhitePixelCounter = 0;
+
+    // if image width is 800, then 1 - 239 is left, 240 - 560 is center, 561 - 800 is right
+    int leftRegionBoundary = (int)(0.30*img.width); // 0 to 30% of image width
+    int rightRegionBoundary = (int)(0.70*img.width); // > 70% of image width
 
 
-    for (int i = 0; i < (img.height * img.step); i++)
+    for (size_t i = 0; i < (img.height * img.step); i+=3) // 3 to loop over each pixel as RGB present
     {
-        if (img.data[i] == white_pixel) // white ball detected
+        // check R G B channel for white pixel
+        if ((img.data[i] == white_pixel) && (img.data[i+1] == white_pixel) && (img.data[i+2] == white_pixel))
         {
-            if (i < leftRegionBoundary) // pixel belongs to left region
+            int pixelId = (i/3) % img.width; // 0 to 800
+            if (pixelId < leftRegionBoundary) // pixel belongs to left region
             {
-                whitePixelCounterByRegion[0]++; // left counter
+                leftWhitePixelCounter++; // left counter
             }
-            else if (i > rightRegionBoundary) // pixel belongs to right region
+            else if (pixelId > rightRegionBoundary) // pixel belongs to right region
             {
-                whitePixelCounterByRegion[2]++; // right counter
+                rightWhitePixelCounter++; // right counter
             }
             else // pixel belongs to center region
             {
-                whitePixelCounterByRegion[1]++; // center counter
+                centerWhitePixelCounter++; // center counter
             }
         }
     }
 
-    int maxCount = *(std::max_element(whitePixelCounterByRegion.cbegin(), whitePixelCounterByRegion.cend()));
-    if (maxCount == whitePixelCounterByRegion[0]) // Move Left
+    // Move Left
+    if ((leftWhitePixelCounter > rightWhitePixelCounter) && (leftWhitePixelCounter > centerWhitePixelCounter))
     {
-        drive_robot(0.0, 0.5);
+        drive_robot(0.5, 0.5);
     }
-    else if (maxCount == whitePixelCounterByRegion[1]) // Move Forward
+    // Move Right
+    else if ((rightWhitePixelCounter > leftWhitePixelCounter) && (rightWhitePixelCounter > centerWhitePixelCounter))
     {
-        drive_robot(0.5, 0.0);
+        drive_robot(0.5, -0.5);
     }
-    else if (maxCount == whitePixelCounterByRegion[2]) // Move Right
+    // Move Forward
+    else if ((centerWhitePixelCounter > leftWhitePixelCounter) && (centerWhitePixelCounter > rightWhitePixelCounter))
     {
-        drive_robot(0.0, -0.5);
+        drive_robot(1.0, 0.0);
     }
     else // stop
     {
         drive_robot(0.0, 0.0);
     }
-
-    // TODO: Loop through each pixel in the image and check if there's a bright white one
-    // Then, identify if this pixel falls in the left, mid, or right side of the image
-    // Depending on the white ball position, call the drive_bot function and pass velocities to it
-    // Request a stop when there's no white ball seen by the camera
+    return;
 }
 
 int main(int argc, char** argv)
