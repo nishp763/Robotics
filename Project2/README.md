@@ -43,3 +43,19 @@ catkin_make
 source devel/setup.bash
 roslaunch my_robot world.launch
 ```
+9. Setup RViz (ROS Visualization) to visualize sensor readings. On the left side of RViz, under `Displays`:
+	- Select `odom` for fixed frame
+	- Click the `Add` button and
+		- add `RobotModel` and your robot model should load up in RViz.
+		- add `Camera` and select the <b>rgb/image_raw</b> topic that was defined in the camera Gazebo plugin
+		- add `LaserScan` and select the <b>/scan</b> topic that was defined in the Hokuyo Gazebo plugin
+10. Open another Terminal/CLI by using `Ctrl + Alt + T` shortcut.
+Switch to `catkin_ws`
+```bash
+cd /<your_dir>/catkin_ws
+```
+11. Run `drive_bot` and `process_image`, which can be done by executing `ball_chaser.launch`
+```bash
+source devel/setup.bash
+roslaunch ball_chaser ball_chaser.launch
+```
