@@ -59,3 +59,4 @@ cd /<your_dir>/catkin_ws
 source devel/setup.bash
 roslaunch ball_chaser ball_chaser.launch
 ```
+12. In Gazebo, move the white ball around so its in the robot's cameras field of view. The robot will move right if the white ball is found on the right side, left for left and forward if its in the center region. The robot will not move if there is no white ball detected in the camera.
