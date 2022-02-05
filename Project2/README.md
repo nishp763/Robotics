@@ -15,11 +15,31 @@ In this project, you should create two ROS packages inside your `catkin_ws/src:`
 	- Write a `process_image` C++ node that reads your robot’s camera image, analyzes it to determine the presence and position of a white ball. If a white ball exists in the image, your node should request a service via a client to drive the robot towards it.
 	- The `ball_chaser.launch` should run both the `drive_bot` and the `process_image` nodes.
 
-
 ### Directory Structure
-```
+```bash
 
 ```
 
 ### Build Instructions
-
+1. Open Terminal/CLI by using `Ctrl + Alt + T` shortcut.
+2. Create and initialize a `catkin_ws`
+```bash
+mkdir -p /<your_dir>/catkin_ws/src
+cd /<your_dir>/catkin_ws/src
+catkin_init_workspace
+```
+3. Clone this repo inside `/<your_dir>/catkin_ws/src`
+5. Ensure src directory has `my_robot` and `ball_chaser` directory inside it
+6. Switch to `catkin_ws`
+```bash
+cd /<your_dir>/catkin_ws
+```
+7. Build the code and ensure there are no build errors reported
+```bash
+catkin_make
+```
+8. Launch RViz and Gazebo. This may take a while upon initial loading.
+```bash
+source devel/setup.bash
+roslaunch my_robot world.launch
+```
