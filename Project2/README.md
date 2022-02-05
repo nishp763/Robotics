@@ -23,7 +23,7 @@ In this project, you should create two ROS packages inside your `catkin_ws/src:`
 ### Build Instructions
 1. Open Terminal/CLI by using `Ctrl + Alt + T` shortcut.
 2. Create and initialize a `catkin_ws`
-```
+```bash
 mkdir -p /<your_dir>/catkin_ws/src
 cd /<your_dir>/catkin_ws/src
 catkin_init_workspace
