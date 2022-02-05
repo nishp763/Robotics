@@ -203,7 +203,7 @@
 
 <!-- robot colours -->
   <gazebo reference="left_wheel">
-    <material>Gazebo/Green</material>
+    <material>Gazebo/Red</material>
   </gazebo>
 
   <gazebo reference="right_wheel">
@@ -211,11 +211,15 @@
   </gazebo>
 
   <gazebo reference="chassis">
-    <material>Gazebo/Blue</material>
+    <material>Gazebo/DarkGrey</material>
   </gazebo>
 
   <gazebo reference="camera">
-    <material>Gazebo/Red</material>
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="hokuyo">
+    <material>Gazebo/YellowGlow</material>
   </gazebo>
 
 </robot>
