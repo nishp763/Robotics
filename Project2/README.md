@@ -32,7 +32,37 @@ In this project, you should create two ROS packages inside your `catkin_ws/src:`
 
 ### Directory Structure
 ```bash
-
+.Project2
+├── ball_chaser                         # ball_chaser package
+│   ├── CMakeLists.txt                  # compiler instructions
+│   ├── launch                          # launch folder for launch files
+│   │   └── ball_chaser.launch
+│   ├── package.xml                     # package info
+│   ├── src                             # source folder for C++ scripts
+│   │   ├── drive_bot.cpp
+│   │   └── process_image.cpp
+│   └── srv                             # service folder for ROS services
+│       └── DriveToTarget.srv
+├── images                              # output results
+│   ├── demo.gif
+│   ├── gazebo1.png
+│   ├── gazebo2.png
+│   └── rviz.png
+├── my_robot                            # my_robot package
+│   ├── CMakeLists.txt                  # compiler instructions
+│   ├── launch                          # launch folder for launch files
+│   │   ├── robot_description.launch
+│   │   └── world.launch
+│   ├── meshes                          # meshes folder for sensors
+│   │   └── hokuyo.dae
+│   ├── package.xml                     # package info
+│   ├── urdf                            # urdf folder for xarco files
+│   │   ├── my_robot.gazebo
+│   │   └── my_robot.xacro
+│   └── worlds                          # world folder for world files
+│       ├── empty.world
+│       └── UdacityOffice.world
+└── README.md
 ```
 
 ### Build Instructions
