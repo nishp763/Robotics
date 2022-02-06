@@ -4,11 +4,11 @@
 </p>
 
 <p align="center">
-  <img src="images/gazebo1.png"/>
+  <img src="images/gazebo2.png"/>
 </p>
 
 <p align="center">
-  <img src="images/gazebo2.png"/>
+  <img src="images/gazebo1.png"/>
 </p>
 
 <p align="center">
