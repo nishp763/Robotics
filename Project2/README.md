@@ -1,4 +1,19 @@
 # Project #2 - Go Chase It!
+<p align="center">
+  <img src="images/demo.gif"/>
+</p>
+
+<p align="center">
+  <img src="images/gazebo1.png"/>
+</p>
+
+<p align="center">
+  <img src="images/gazebo2.png"/>
+</p>
+
+<p align="center">
+  <img src="images/rviz.png"/>
+</p>
 
 ### Summary of Tasks
 In this project, you should create two ROS packages inside your `catkin_ws/src:` the `drive_bot` and the `ball_chaser`. Here are the steps to design the robot, house it inside your world, and program it to chase white-colored balls:
