@@ -12,46 +12,46 @@ Welcome to the Where Am I? localization project! In this project, you will learn
 ### Directory Structure
 ```bash
 .Project3
-├── ball_chaser																	# ball_chaser package
-│   ├── CMakeLists.txt													# compiler instructions
-│   ├── launch																	# launch folder for launch files
+├── ball_chaser                                 # ball_chaser package
+│   ├── CMakeLists.txt                          # compiler instructions
+│   ├── launch                                 	# launch folder for launch files
 │   │   └── ball_chaser.launch
-│   ├── package.xml															# package info
-│   ├── src 																		# source folder for C++ scripts
+│   ├── package.xml                             # package info
+│   ├── src                                     # source folder for C++ scripts
 │   │   ├── drive_bot.cpp
 │   │   └── process_image.cpp
-│   └── srv  																		# service folder for ROS services
+│   └── srv                                     # service folder for ROS services
 │       └── DriveToTarget.srv
-├── images 																			# output results
+├── images                                      # output results
 │   └── demo.gif
-├── my_robot																		# my_robot package
-│   ├── CMakeLists.txt													# compiler instructions
-│   ├── config          												# config files
+├── my_robot                                    # my_robot package
+│   ├── CMakeLists.txt                          # compiler instructions
+│   ├── config                                  # config files
 │   │   ├── base_local_planner_params.yaml
 │   │   ├── costmap_common_params.yaml
 │   │   ├── global_costmap_params.yaml
 │   │   ├── local_costmap_params.yaml
 │   │   └── __MACOSX
-│   ├── launch 																	# launch folder for launch files
+│   ├── launch                                  # launch folder for launch files
 │   │   ├── amcl.launch
 │   │   ├── robot_description.launch
 │   │   └── world.launch
-│   ├── maps 																		# map details
+│   ├── maps                                    # map details
 │   │   ├── map.pgm
 │   │   └── map.yaml
 │   ├── meshes
 │   │   └── hokuyo.dae
-│   ├── package.xml															# package info
-│   ├── RVIZLaunchConfig.rviz 									# RVIZ config file
-│   ├── urdf 																		# urdf folder for xacro files
+│   ├── package.xml                             # package info
+│   ├── RVIZLaunchConfig.rviz                   # RVIZ config file
+│   ├── urdf                                    # urdf folder for xacro files
 │   │   ├── my_robot.gazebo
 │   │   └── my_robot.xacro
-│   └── worlds 																	# world folder for world files
+│   └── worlds                                  # world folder for world files
 │       ├── empty.world
 │       └── UdacityOffice.world
-├── pgm_map_creator															# pgm_map_creator package
-│   ├── CMakeLists.txt													# compiler instructions
-│   ├── launch 																	# launch folder for launch files
+├── pgm_map_creator                             # pgm_map_creator package
+│   ├── CMakeLists.txt                          # compiler instructions
+│   ├── launch                                  # launch folder for launch files
 │   │   └── request_publisher.launch
 │   ├── LICENSE
 │   ├── maps
@@ -59,7 +59,7 @@ Welcome to the Where Am I? localization project! In this project, you will learn
 │   ├── msgs
 │   │   ├── CMakeLists.txt
 │   │   └── collision_map_request.proto
-│   ├── package.xml															# package info
+│   ├── package.xml                             # package info
 │   ├── README.md
 │   ├── src
 │   │   ├── collision_map_creator.cc
@@ -68,10 +68,10 @@ Welcome to the Where Am I? localization project! In this project, you will learn
 │       ├── udacity_mtv
 │       └── UdacityOffice.world
 ├── README.md
-└── teleop_twist_keyboard												# teleop_twist_keyboard package
+└── teleop_twist_keyboard                       # teleop_twist_keyboard package
     ├── CHANGELOG.rst
-    ├── CMakeLists.txt													# compiler instructions
-    ├── package.xml															# package info
+    ├── CMakeLists.txt                          # compiler instructions
+    ├── package.xml                             # package info
     ├── README.md
     └── teleop_twist_keyboard.py
 
