@@ -145,7 +145,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.00999999978
+      Size (m): 0.100000001
       Style: Flat Squares
       Topic: /scan
       Unreliable: false
@@ -233,5 +233,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1200
-  X: 58
-  Y: 8
+  X: 136
+  Y: 64
