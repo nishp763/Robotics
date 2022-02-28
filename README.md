@@ -7,3 +7,8 @@
 <p align="center">
   <img src="Project2/images/demo.gif"/>
 </p>
+
+### [Project #3 - Where Am I?](/Project3)
+<p align="center">
+  <img src="Project3/images/demo.gif"/>
+</p>
