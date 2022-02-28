@@ -31,10 +31,10 @@
         <param name="laser_z_rand" value="0.05"/>
 
         <!-- Odometry -->
-        <param name="odom_alpha1" value="0.01"/>
-        <param name="odom_alpha2" value="0.01"/>
-        <param name="odom_alpha3" value="0.01"/>
-        <param name="odom_alpha4" value="0.01"/>
+        <param name="odom_alpha1" value="0.001"/>
+        <param name="odom_alpha2" value="0.001"/>
+        <param name="odom_alpha3" value="0.001"/>
+        <param name="odom_alpha4" value="0.001"/>
 
     </node>
 
