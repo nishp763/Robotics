@@ -23,3 +23,55 @@ The project flow will be as follows:
 ```
 
 ### Build Instructions
+1. Open Terminal/CLI by using `Ctrl + Alt + T` shortcut.
+2. Create and initialize a `catkin_ws`
+```bash
+mkdir -p /<your_dir>/catkin_ws/src
+cd /<your_dir>/catkin_ws/src
+catkin_init_workspace
+```
+3. Clone this repo inside `/<your_dir>/catkin_ws/src`
+4. Ensure `ros-kinetic-rtabmap-ros` package is installed. If not, install by running the following:
+```bash
+sudo apt-get install ros-kinetic-rtabmap-ros
+```
+5. Switch to `catkin_ws`
+```bash
+cd /<your_dir>/catkin_ws
+```
+6. Build the code and ensure there are no build errors reported
+```bash
+catkin_make
+```
+7. Launch RViz and Gazebo. This may take a while upon initial loading.
+```bash
+source devel/setup.bash
+roslaunch my_robot world.launch
+```
+8. Open another Terminal/CLI by using `Ctrl + Alt + T` shortcut. Switch to `catkin_ws`
+```bash
+cd /<your_dir>/catkin_ws
+```
+9. Run `teleop` node, which can be done by executing `teleop.launch`
+```bash
+source devel/setup.bash
+roslaunch my_robot teleop.launch
+```
+10. Open another Terminal/CLI by using `Ctrl + Alt + T` shortcut. Switch to `catkin_ws`
+```bash
+cd /<your_dir>/catkin_ws
+```
+11. Run `mapping` node, which can be done by executing `mapping.launch`
+```bash
+source devel/setup.bash
+roslaunch my_robot mapping.launch
+```
+12. Navigate your robot in the simulation to create map for the environment! When you are all set, terminate the node and you could find your map db file in the place specified in the mapping.launch file. It will be named rtabmap.db and located in the /my_robot/maps/ folder. Note: if rtabmap.db exists, it will override it when the nodes are launched.
+13. To open the mapping database, execute the following in a terminal:
+```bash
+rtabmap-databaseViewer /<your_dir>/catkin_ws/src/my_robot/maps/rtabmap.db
+```
+14. Once opened:
+- Say yes to using the database parameters
+- View -> Constraint View
+- View -> Graph View
