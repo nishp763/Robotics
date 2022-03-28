@@ -1,6 +1,12 @@
 # Project #4 - Map My World!
 <p align="center">
-  <img src="images/demo.gif"/>
+  <img src="images/demo.jpg"/>
+</p>
+<p align="center">
+  <img src="images/graph.jpg"/>
+</p>
+<p align="center">
+  <img src="images/3dMap.jpg"/>
 </p>
 
 ### Overview
@@ -20,6 +26,69 @@ The project flow will be as follows:
 ### Directory Structure
 ```bash
 .Project4
+├── ball_chaser
+│         ├── CMakeLists.txt
+│         ├── launch
+│         │         └── ball_chaser.launch
+│         ├── package.xml
+│         ├── src
+│         │         ├── drive_bot.cpp
+│         │         └── process_image.cpp
+│         └── srv
+│             └── DriveToTarget.srv
+├── my_robot
+│         ├── CMakeLists.txt
+│         ├── config
+│         │         ├── base_local_planner_params.yaml
+│         │         ├── costmap_common_params.yaml
+│         │         ├── global_costmap_params.yaml
+│         │         ├── local_costmap_params.yaml
+│         │         └── __MACOSX
+│         ├── launch
+│         │         ├── amcl.launch
+│         │         ├── mapping.launch
+│         │         ├── robot_description.launch
+│         │         ├── teleop.launch
+│         │         └── world.launch
+│         ├── maps
+│         │         ├── map.pgm
+│         │         ├── map.yaml
+│         │         └── rtabmap.db
+│         ├── meshes
+│         │         └── hokuyo.dae
+│         ├── package.xml
+│         ├── RVIZLaunchConfig.rviz
+│         ├── urdf
+│         │         ├── my_robot.gazebo
+│         │         └── my_robot.xacro
+│         └── worlds
+│             ├── empty.world
+│             ├── minimap.world
+│             └── UdacityOffice.world
+├── pgm_map_creator
+│         ├── CMakeLists.txt
+│         ├── launch
+│         │         └── request_publisher.launch
+│         ├── LICENSE
+│         ├── maps
+│         │         └── map.pgm
+│         ├── msgs
+│         │         ├── CMakeLists.txt
+│         │         └── collision_map_request.proto
+│         ├── package.xml
+│         ├── README.md
+│         ├── src
+│         │         ├── collision_map_creator.cc
+│         │         └── request_publisher.cc
+│         └── world
+│             └── udacity_mtv
+├── README.md
+└── teleop_twist_keyboard
+    ├── CHANGELOG.rst
+    ├── CMakeLists.txt
+    ├── package.xml
+    ├── README.md
+    └── teleop_twist_keyboard.py
 ```
 
 ### Build Instructions
@@ -30,7 +99,10 @@ mkdir -p /<your_dir>/catkin_ws/src
 cd /<your_dir>/catkin_ws/src
 catkin_init_workspace
 ```
-3. Clone this repo inside `/<your_dir>/catkin_ws/src`
+3. Clone this repo inside `/<your_dir>/catkin_ws/src`. Pull all submodules by running
+```bash
+git submodule update --init --recursive
+```
 4. Ensure `ros-kinetic-rtabmap-ros` package is installed. If not, install by running the following:
 ```bash
 sudo apt-get install ros-kinetic-rtabmap-ros
