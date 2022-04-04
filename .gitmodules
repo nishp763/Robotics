@@ -10,3 +10,19 @@
 [submodule "Project3/teleop_twist_keyboard"]
 	path = Project3/teleop_twist_keyboard
 	url = https://github.com/ros-teleop/teleop_twist_keyboard.git
+[submodule "Project5/slam_gmapping"]
+	path = Project5/slam_gmapping
+	url = https://github.com/ros-perception/slam_gmapping.git
+	branch = hydro-devel
+[submodule "Project5/turtlebot"]
+	path = Project5/turtlebot
+	url = https://github.com/turtlebot/turtlebot.git
+	branch = kinetic
+[submodule "Project5/turtlebot_interactions"]
+	path = Project5/turtlebot_interactions
+	url = https://github.com/turtlebot/turtlebot_interactions.git
+	branch = indigo
+[submodule "Project5/turtlebot_simulator"]
+	path = Project5/turtlebot_simulator
+	url = https://github.com/turtlebot/turtlebot_simulator.git
+	branch = indigo
