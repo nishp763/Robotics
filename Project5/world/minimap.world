@@ -435,112 +435,11 @@
       </link>
       <static>1</static>
     </model>
-    <model name='number1'>
-      <pose frame=''>3.08937 -1.48566 0.4 0 -0 0</pose>
-      <static>1</static>
-      <link name='link'>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://number1/meshes/number.dae</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://number1/materials/scripts</uri>
-              <uri>model://number1/materials/textures</uri>
-              <name>Number/One</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='number3'>
-      <pose frame=''>3.44888 2.86989 0.4 0 -0 0</pose>
-      <static>1</static>
-      <link name='link'>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://number1/meshes/number.dae</uri>
-            </mesh>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://number3/materials/scripts</uri>
-              <uri>model://number3/materials/textures</uri>
-              <name>Number/Three</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='Construction Cone'>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <scale>10 10 10</scale>
-              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <scale>10 10 10</scale>
-              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <kinematic>0</kinematic>
-      </link>
-      <pose frame=''>4.30708 -0.068907 0 0 -0 0</pose>
-    </model>
     <state world_name='default'>
-      <sim_time>193 492000000</sim_time>
-      <real_time>206 273243516</real_time>
-      <wall_time>1647827017 339616168</wall_time>
-      <iterations>193492</iterations>
-      <model name='Construction Cone'>
-        <pose frame=''>4.36351 -0.543415 0 0 -0 1e-06</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>4.36351 -0.543415 0 0 -0 1e-06</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 19.5452 0.293834 -0.112753 -0</acceleration>
-          <wrench>0 0 19.5452 0 -0 0</wrench>
-        </link>
-      </model>
+      <sim_time>221 607000000</sim_time>
+      <real_time>32 961210407</real_time>
+      <wall_time>1649705948 539576956</wall_time>
+      <iterations>28115</iterations>
       <model name='ground_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -603,33 +502,13 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='number1'>
-        <pose frame=''>4.21764 -3.19772 0.4 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>4.21764 -3.19772 0.4 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='number3'>
-        <pose frame=''>4.22541 4.25439 0.4 0 -0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>4.22541 4.25439 0.4 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
       <light name='sun'>
         <pose frame=''>0 0 10 0 -0 0</pose>
       </light>
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>26.2619 -6.79675 25.6536 0 0.689796 2.63782</pose>
+        <pose frame=''>16.6656 -3.76535 12.297 0 0.617796 2.92182</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
