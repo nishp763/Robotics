@@ -26,12 +26,16 @@ int main(int argc, char** argv)
   goal.target_pose.header.stamp = ros::Time::now();
 
   // Define a position and orientation for the robot to reach to pickup zone
-  goal.target_pose.pose.position.x = -4.3;
-  goal.target_pose.pose.position.y = -1.3;
+  goal.target_pose.pose.position.x = -1.57;
+  goal.target_pose.pose.position.y = 4.10;
+  goal.target_pose.pose.position.z = 0.0;
+  goal.target_pose.pose.orientation.x = 0.0;
+  goal.target_pose.pose.orientation.y = 0.0;
+  goal.target_pose.pose.orientation.z = 0.03;
   goal.target_pose.pose.orientation.w = 1.0;
 
   // Send the goal position and orientation for the robot to reach
-  ROS_INFO("Sending Goal #1 - Pickup Zone");
+  ROS_INFO("Robot is travelling to the pick-up zone");
   ac.sendGoal(goal);
 
   // Wait an infinite time for the results
@@ -39,9 +43,33 @@ int main(int argc, char** argv)
 
   // Check if the robot reached its goal
   if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
-    ROS_INFO("Hooray, the base reached the Pickup Zone");
+    ROS_INFO("Robot picked up the virtual object");
   else
-    ROS_INFO("The base failed to reached the Pickup Zone");
+    ROS_INFO("Robot failed to reach the Pickup Zone");
+
+  ros::Duration(5.0).sleep(); // wait 5 seconds
+
+  // Define a position and orientation for the robot to reach to drop-off zone
+  goal.target_pose.pose.position.x = 3.72;
+  goal.target_pose.pose.position.y = 4.29;
+  goal.target_pose.pose.position.z = 0.0;
+  goal.target_pose.pose.orientation.x = 0.0;
+  goal.target_pose.pose.orientation.y = 0.0;
+  goal.target_pose.pose.orientation.z = 0.70;
+  goal.target_pose.pose.orientation.w = 0.71;
+
+  // Send the goal position and orientation for the robot to reach
+  ROS_INFO("Robot is travelling to the drop-off zone");
+  ac.sendGoal(goal);
+
+  // Wait an infinite time for the results
+  ac.waitForResult();
+
+  // Check if the robot reached its goal
+  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+    ROS_INFO("Robot dropped the virtual object");
+  else
+    ROS_INFO("Robot failed to reach the Drop-Off Zone");
 
   return 0;
 }
