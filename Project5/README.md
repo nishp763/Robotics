@@ -4,7 +4,13 @@
 </p>
 
 ### Overview
-In this project you will simulate a full home service robot capable of navigating to pick up and deliver virtual objects.
+In this project you will simulate a full home service robot capable of navigating to pick up and deliver virtual objects. Your home service robot shall do the following:
+- Initially show the marker at the pickup zone
+- Robot then travels to the pickup zone
+- Hide the marker once your robot reaches the pickup zone
+- Wait 5 seconds to simulate a pickup
+- Robot then travels to the dropoff zone
+- Show the marker at the drop off zone once your robot reaches it
 
 ### Project Instructions
 To program your home service robot, you will need to interface it with different ROS packages. Some of these packages are official ROS packages which offer great tools and others are packages that you’ll create. The goal of this section is to prepare and build your `catkin workspace`.
@@ -64,3 +70,54 @@ rosdep -i install turtlebot_gazebo
 ```bash
 catkin_make
 ```
+8. Launch the `home_service.sh` script. Note in case the script is unable to launch due to permission error, change its permissions to make sure the scripts are executables by running chmod +x <script-name>
+```bash
+source devel/setup.bash
+cd src/scripts/
+./home_service.sh
+```
+
+### SLAM Testing
+```bash
+./test_slam.sh
+```
+By running the above script, you can manually perform SLAM by teleoperating the robot on the environment that was designed in Gazebo. The goal of this is to manually test SLAM. The script will deploy a turtlebot inside the Gazebo environment, allows for user control with keyboard commands, interfaces it with a SLAM package, and visualizes the map in rviz. The following files/packages are used to accomplish this task:
+- turtlebot_world.launch deploys the turtlebot in Gazebo environment
+- gmapping_demo.launch performs SLAM
+- view_navigation.launch observes the map in rviz
+- keyboard_teleop.launch enables manual control of the robot with keyboard commands
+
+### Localization and Navigation Testing
+```bash
+./test_navigation.sh
+```
+By running the above script, you can pick two different goals and test the robot's ability to reach them and orient itself with respect to them. The ROS Navigation stack is utilized, which is based on the Dijkstra's algorithm, a variant of the Uniform Cost Search algorithm, to plan the robot trajectory from start to goal position. The following files/packages are used to accomplish this task:
+- turtlebot_world.launch deploys the turtlebot in Gazebo environment
+- amcl_demo.launch performs localization
+- view_navigation.launch observes the map in rviz
+
+### Navigation Goal Testing
+```bash
+./pick_objects.sh
+```
+By running the above script, you can autonomously command the robot to travel to both desired pickup and drop off zones. The pick_objects node communicates with the ROS navigation stack and autonomously sends successive goals for the robot to reach. The following files/packages are used to accomplish this task:
+- turtlebot_world.launch deploys the turtlebot in Gazebo environment
+- amcl_demo.launch performs localization
+- view_navigation.launch observes the map in rviz
+- pick_objects node to command the robot to travel to pick-up and drop-off zone
+
+### Virtual Objects Testing
+```bash
+./add_makers.sh
+```
+By running the above script, you can model a virtual object in rviz. The virtual object is the one being picked and delivered by the robot, thus it should first appear in its pickup zone, and then in its drop off zone once the robot reaches it. The marker behaves as follows:
+- Marker displayed at the pickup zone
+- Pause 5 seconds
+- Marker hidden
+- Pause 5 seconds
+- Marker displayed at the drop off zone
+The following files/packages are used to accomplish this task:
+- turtlebot_world.launch deploys the turtlebot in Gazebo environment
+- amcl_demo.launch performs localization
+- view_navigation.launch observes the map in rviz
+- add_markers node to command the robot to travel to pick-up and drop-off zone
