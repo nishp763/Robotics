@@ -54,23 +54,10 @@ int main( int argc, char** argv )
     // Set the marker type.  Initially this is CUBE, and cycles between that and SPHERE, ARROW, and CYLINDER
     marker.type = shape;
 
-    // Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
-    marker.action = visualization_msgs::Marker::ADD;
-
-    // Set the pose of the marker to PickUp Zone.
-    // This is a full 6DOF pose relative to the frame/time specified in the header
-    marker.pose.position.x = -1.57;
-    marker.pose.position.y = 4.10;
-    marker.pose.position.z = 0.0;
-    marker.pose.orientation.x = 0.0;
-    marker.pose.orientation.y = 0.0;
-    marker.pose.orientation.z = 0.03;
-    marker.pose.orientation.w = 1.0;
-
     // Set the scale of the marker -- 1x1x1 here means 1m on a side
-    marker.scale.x = 0.5;
-    marker.scale.y = 0.5;
-    marker.scale.z = 0.5;
+    marker.scale.x = 0.3;
+    marker.scale.y = 0.3;
+    marker.scale.z = 0.3;
 
     // Set the color -- be sure to set alpha to something non-zero!
     marker.color.r = 0.0f;
@@ -80,46 +67,70 @@ int main( int argc, char** argv )
 
     marker.lifetime = ros::Duration();
 
-    // Publish the marker
-    marker_pub.publish(marker);
+    std::string robotStatus = "";
+    n.getParam("/robot_status", robotStatus);
 
-    // 5 second pause
-    sleep(5);
+    if (robotStatus == "init")
+    {
+      ROS_INFO("Virtual object displayed at the pick-up zone");
 
-    // Delete the marker (hide)
-    marker.action = visualization_msgs::Marker::DELETE;
+      // Set the pose of the marker to PickUp Zone.
+      // This is a full 6DOF pose relative to the frame/time specified in the header
+      marker.pose.position.x = -1.57;
+      marker.pose.position.y = 4.10;
+      marker.pose.position.z = 0.0;
+      marker.pose.orientation.x = 0.0;
+      marker.pose.orientation.y = 0.0;
+      marker.pose.orientation.z = 0.03;
+      marker.pose.orientation.w = 1.0;            
 
-    // Publish the marker
-    marker_pub.publish(marker);
+      // Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
+      marker.action = visualization_msgs::Marker::ADD;
 
-    // 5 second pause
-    sleep(5);
+      // Publish the marker
+      marker_pub.publish(marker);
+    }
+    else if (robotStatus == "picked")
+    {
+      ROS_INFO("Virtual object hidden from the pick-up zone");
 
-    // Set the pose of the marker to Drop-Off Zone.
-    // This is a full 6DOF pose relative to the frame/time specified in the header
-    marker.pose.position.x = 3.72;
-    marker.pose.position.y = 4.29;
-    marker.pose.position.z = 0.0;
-    marker.pose.orientation.x = 0.0;
-    marker.pose.orientation.y = 0.0;
-    marker.pose.orientation.z = 0.70;
-    marker.pose.orientation.w = 0.71;
+      // Delete the marker (hide)
+      marker.action = visualization_msgs::Marker::DELETE;
 
-    // Add the marker (show)
-    marker.action = visualization_msgs::Marker::ADD;
+      // Publish the marker
+      marker_pub.publish(marker);
+    }
+    else if (robotStatus == "dropped")
+    {
+      ROS_INFO("Virtual object displayed at the drop-off zone");
 
-    // Publish the marker
-    marker_pub.publish(marker);
+      // Set the pose of the marker to Drop-Off Zone.
+      // This is a full 6DOF pose relative to the frame/time specified in the header
+      marker.pose.position.x = 3.72;
+      marker.pose.position.y = 4.29;
+      marker.pose.position.z = 0.0;
+      marker.pose.orientation.x = 0.0;
+      marker.pose.orientation.y = 0.0;
+      marker.pose.orientation.z = 0.70;
+      marker.pose.orientation.w = 0.71;
 
-    // 5 second pause
-    sleep(5);
+      // Add the marker (show)
+      marker.action = visualization_msgs::Marker::ADD;
 
-    // Delete the marker (hide)
-    marker.action = visualization_msgs::Marker::DELETE;
+      // Publish the marker
+      marker_pub.publish(marker);
+    }
+    else
+    {
+      ROS_INFO("Virtual object hidden");
 
-    // Publish the marker
-    marker_pub.publish(marker);
+      // Delete the marker (hide)
+      marker.action = visualization_msgs::Marker::DELETE;
 
+      // Publish the marker
+      marker_pub.publish(marker);
+    }
     r.sleep();
   }
+  return 0;
 }
