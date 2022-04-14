@@ -116,6 +116,7 @@ By running the above script, you can model a virtual object in rviz. The virtual
 - Marker hidden
 - Pause 5 seconds
 - Marker displayed at the drop off zone
+
 The following files/packages are used to accomplish this task:
 - turtlebot_world.launch deploys the turtlebot in Gazebo environment
 - amcl_demo.launch performs localization
