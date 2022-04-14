@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # launch turtlebot.launch to deploy the turtlebot in the gazebo environment
-xterm -e  " roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=$(pwd)/../world/minimap.world" &
+xterm -e  " roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=$(pwd)/../map/minimap.world" &
 sleep 5
 
 # launch amcl_demo.launch to localize the turtlebot
