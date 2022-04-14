@@ -1,6 +1,17 @@
 # Project #5 - Home Service Robot
 <p align="center">
   <img src="images/demo.gif"/>
+  <b>Home Service Robot Demo</b>
+</p>
+
+<p align="center">
+  <img src="images/Robot_PickUp.png"/>
+  <b>Robot at Pick-Up Zone</b>
+</p>
+
+<p align="center">
+  <img src="images/Robot_DropOff.png"/>
+  <b>Robot at Drop-off Zone</b>
 </p>
 
 ### Overview
@@ -36,6 +47,43 @@ Import these packages now and install them in the `src` directory of your `catki
 ### Directory Structure
 ```bash
 .Project5
+├── add_markers
+│   ├── CMakeLists.txt
+│   ├── launch
+│   │   └── view_navigation.launch
+│   ├── package.xml
+│   └── src
+│       ├── add_markers.cpp
+│       └── add_markers_only.cpp
+├── images
+│   ├── demo.gif
+│   ├── Robot_DropOff.png
+│   └── Robot_PickUp.png
+├── map
+│   ├── map.pgm
+│   ├── map.yaml
+│   └── minimap.world
+├── pick_objects
+│   ├── CMakeLists.txt
+│   ├── package.xml
+│   └── src
+│       └── pick_objects.cpp
+├── README.md
+├── rvizConfig
+│   └── home_service_config.rviz
+├── scripts
+│   ├── add_markers.sh
+│   ├── home_service.sh
+│   ├── launch.sh
+│   ├── pick_objects.sh
+│   ├── test_navigation.sh
+│   └── test_slam.sh
+├── slam_gmapping
+│   ├── gmapping
+│   └── slam_gmapping
+├── turtlebot
+├── turtlebot_interactions
+└── turtlebot_simulator
 ```
 
 ### Build Instructions
