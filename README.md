@@ -20,5 +20,5 @@
 
 ### [Project #5 - Home Service Robot](/Project5)
 <p align="center">
-  <img src="Project5/images/demo.jpg"/>
+  <img src="Project5/images/demo.gif"/>
 </p>
